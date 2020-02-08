@@ -7,7 +7,7 @@ const TransactionListItem = ({ id, currencyName, amount, units, dispatch }) => (
       <h3>{currencyName}</h3>
     </Link>
     <p>
-      {units}units ${amount}
+      {units}units ${amount / 100}
     </p>
   </div>
 );

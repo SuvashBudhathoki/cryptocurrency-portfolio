@@ -86,6 +86,8 @@ export default class TransactionForm extends React.Component {
             value={this.state.selectedOption}
             onChange={this.onValueChange}
             options={options}
+            autoFocus
+            placeholder="Select your currency name"
           />
 
           <input

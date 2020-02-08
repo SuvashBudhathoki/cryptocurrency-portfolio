@@ -1,10 +1,11 @@
 import React from "react";
 import TransactionList from "./TransactionList";
-// import TransactionListFilters from "./TransactionListFilters";
+import TransactionTotal from "./TransactionTotal";
 
 const Dashboard = () => (
   <div>
     <p>
+      <TransactionTotal />
       <TransactionList />
     </p>
   </div>

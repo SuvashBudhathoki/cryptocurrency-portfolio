@@ -15,7 +15,9 @@ store.dispatch(
 
 const jsx = (
   <Provider store={store}>
-    <AppRouter />
+    <div>
+      <AppRouter />
+    </div>
   </Provider>
 );
 

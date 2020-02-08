@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import Dashboard from "../components/Dashboard";
 import AddTransaction from "../components/AddTransaction";
 import EditTransaction from "../components/EditTransaction";
