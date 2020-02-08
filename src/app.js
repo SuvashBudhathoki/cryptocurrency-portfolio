@@ -10,7 +10,15 @@ import { addTransaction } from "./actions/transactions";
 const store = configureStore();
 
 store.dispatch(
-  addTransaction({ currencyName: "Bitcoin", units: 10, amount: 7 })
+  addTransaction({ currencyName: "Bitcoin", units: 10, amount: 10 })
+);
+
+store.dispatch(
+  addTransaction({ currencyName: "Zcash", units: 10, amount: 10 })
+);
+
+store.dispatch(
+  addTransaction({ currencyName: "Zcash", units: 10, amount: 10 })
 );
 
 const jsx = (

@@ -1,21 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class TransactionTotal extends React.Component {
-  state = {
-    total: 0
+const TransactionTotal = props => (
+  <div>
+    <p>
+      Total Transaction :
+      {props.transactions.reduce(
+        (previous, transaction) => previous + transaction.amount,
+        0.0
+      )}
+    </p>
+  </div>
+);
+
+const mapStateToProps = state => {
+  return {
+    transactions: state.transactions
   };
-  render() {
-    return (
-      <div>
-        <p> Total Transaction</p>
-      </div>
-    );
-  }
-}
-
-const mapPropsToState = state => {
-  amount: state.transactions.amount;
 };
-
-export default connect()(TransactionTotal);
+export default connect(mapStateToProps)(TransactionTotal);

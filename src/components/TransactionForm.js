@@ -71,8 +71,8 @@ export default class TransactionForm extends React.Component {
       this.setState(() => ({ error: " " }));
       this.props.onSubmit({
         currencyName: this.state.currencyName,
-        amount: parseFloat(this.state.amount, 10) * 100,
-        units: parseFloat(this.state.units, 10) * 100
+        amount: parseFloat(this.state.amount, 10),
+        units: parseFloat(this.state.units, 10)
       });
     }
   };
