@@ -8,3 +8,7 @@ Amount paid
 
 - The user can add, edit or delete individual transactions.
 - The user can view the transaction list in the Dashboard.
+
+Running Scripts:
+
+yarn dev-server
