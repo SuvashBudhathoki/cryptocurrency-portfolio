@@ -1,29 +1,15 @@
 import React from "react";
-import { removeTransaction } from "../actions/transactions";
-import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
-const TransactionListItem = ({
-  id,
-  currencyName,
-  amount,
-  createdAt,
-  units,
-  dispatch
-}) => (
+const TransactionListItem = ({ id, currencyName, amount, units, dispatch }) => (
   <div>
-    <h3>{currencyName}</h3>
+    <Link to={`.edit/${id}`}>
+      <h3>{currencyName}</h3>
+    </Link>
     <p>
-      {units}units ${amount} - {createdAt}
+      {units}units ${amount}
     </p>
-
-    <button
-      onClick={() => {
-        dispatch(removeTransaction({ id }));
-      }}
-    >
-      Remove
-    </button>
   </div>
 );
 
-export default connect()(TransactionListItem);
+export default TransactionListItem;

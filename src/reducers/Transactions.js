@@ -12,7 +12,7 @@ export default (state = transactionReducerDefaultState, action) => {
     case "REMOVE_TRANSACTION":
       return state.filter(({ id }) => id !== action.id);
 
-    case "EDIT_EXPENSES":
+    case "EDIT_TRANSACTION":
       return state.map(transaction => {
         if (transaction.id === action.id) {
           return {
