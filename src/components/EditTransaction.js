@@ -9,10 +9,20 @@ const EditTransaction = props => {
       <TransactionForm
         transaction={props.transaction}
         onSubmit={transaction => {
+          console.log(transaction, "from editTransaction");
           props.dispatch(editTransaction(props.transaction.id, transaction));
           props.history.push("/");
         }}
       />
+
+      <button
+        onClick={() => {
+          props.dispatch(removeTransaction({ id: props.transaction.id }));
+          props.history.push("/");
+        }}
+      >
+        Delete Transaction
+      </button>
     </div>
   );
 };

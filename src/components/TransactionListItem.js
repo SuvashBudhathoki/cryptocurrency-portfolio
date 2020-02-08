@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const TransactionListItem = ({ id, currencyName, amount, units, dispatch }) => (
   <div>
-    <Link to={`.edit/${id}`}>
+    <Link to={`/edit/${id}`}>
       <h3>{currencyName}</h3>
     </Link>
     <p>

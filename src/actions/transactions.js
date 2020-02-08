@@ -9,16 +9,14 @@ import uuid from "uuid";
 export const addTransaction = ({
   currencyName = "",
   units = 0,
-  amount = 0,
-  createdAt = 0
+  amount = 0
 } = {}) => ({
   type: "ADD_TRANSACTION",
   transaction: {
     id: uuid(),
     currencyName,
     units,
-    amount,
-    createdAt
+    amount
   }
 });
 
@@ -32,7 +30,7 @@ export const removeTransaction = ({ id } = {}) => ({
 // Edit_Transaction
 
 export const editTransaction = (id, updates) => ({
-  type: "EDIT_EXPENSE",
+  type: "EDIT_TRANSACTION",
   id,
   updates
 });

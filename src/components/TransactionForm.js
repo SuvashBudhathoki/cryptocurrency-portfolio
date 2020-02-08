@@ -1,20 +1,38 @@
 import React from "react";
 import moment from "moment";
 import { SingleDatePicker } from "react-dates";
+import Select from "react-select";
+
+const options = [
+  { value: "bitcoin", label: "Bitcoin" },
+  { value: "litecoin", label: "Litecoin" },
+  { value: "ethereum", label: "Ethereum" },
+  { value: "ripple", label: "Ripple" },
+  { value: "bitcoinCash", label: "Bitcoin Cash" },
+  { value: "ethereumClassic", label: "Ethereum Classic" },
+  { value: "zCash", label: "Zcash" },
+  { value: "stellarLumen", label: "Stellar Lumen" }
+];
 
 export default class TransactionForm extends React.Component {
-  state = {
-    currencyName: "",
-    amount: "",
-    units: "",
-    error: ""
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      currencyName: props.transaction ? props.transaction.currencyName : "",
+      amount: props.transaction ? props.transaction.amount : "",
+      units: props.transaction ? props.transaction.units : "",
+      error: "",
+      value: "",
+      selectedOption: null
+    };
+  }
 
   //Setting up currency name from user
-  onCurrencyNameChange = e => {
-    const currencyName = e.target.value;
+
+  onValueChange = selectedOption => {
     this.setState(() => ({
-      currencyName
+      selectedOption,
+      currencyName: selectedOption.label
     }));
   };
 
@@ -44,10 +62,10 @@ export default class TransactionForm extends React.Component {
   onSubmit = e => {
     e.preventDefault();
 
-    if (!this.state.amount || !this.state.units) {
+    if (!this.state.amount || !this.state.units || !this.state.currencyName) {
       this.setState(() => ({
         error:
-          "Please provide total units and amounts for cryptocurrency purchased!!"
+          "Please provide total units and amounts with cryptocurrency name!!"
       }));
     } else {
       this.setState(() => ({ error: " " }));
@@ -64,12 +82,10 @@ export default class TransactionForm extends React.Component {
       <div>
         {this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.onSubmit}>
-          <input
-            type="text"
-            placeholder="CurrencyName"
-            value={this.state.currencyName}
-            onChange={this.onCurrencyNameChange}
-            autoFocus
+          <Select
+            value={this.state.selectedOption}
+            onChange={this.onValueChange}
+            options={options}
           />
 
           <input
@@ -85,9 +101,26 @@ export default class TransactionForm extends React.Component {
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
-          <button> Add Transaction</button>
+          <button>
+            {this.props.transaction ? "Edit Transaction" : "Add Transaction"}
+          </button>
         </form>
       </div>
     );
   }
 }
+
+// <input
+//   type="text"
+//   placeholder="CurrencyName"
+//   value={this.state.currencyName}
+//   onChange={this.onCurrencyNameChange}
+//   autoFocus
+// />
+
+// onCurrencyNameChange = e => {
+//   const currencyName = e.target.value;
+//   this.setState(() => ({
+//     currencyName
+//   }));
+// };

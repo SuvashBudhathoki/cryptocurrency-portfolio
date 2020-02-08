@@ -5,9 +5,9 @@ import TransactionListItem from "./TransactionListItem";
 const TransactionList = props => (
   <div>
     <h1>Transaction List</h1>
-    {props.transactions.map((transaction, index) => (
-      <TransactionListItem {...transaction} key={index} />
-    ))}
+    {props.transactions.map((transaction, index) => {
+      return <TransactionListItem {...transaction} key={index} />;
+    })}
   </div>
 );
 
