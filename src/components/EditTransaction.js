@@ -9,7 +9,6 @@ const EditTransaction = props => {
       <TransactionForm
         transaction={props.transaction}
         onSubmit={transaction => {
-          console.log(transaction, "from editTransaction");
           props.dispatch(editTransaction(props.transaction.id, transaction));
           props.history.push("/");
         }}
