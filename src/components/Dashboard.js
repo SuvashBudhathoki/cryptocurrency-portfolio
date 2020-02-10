@@ -11,6 +11,7 @@ const Dashboard = () => (
       <TransactionListFilters />
       <TransactionList />
       ------CoinMarketCap----
+      <CoinMarketCap />
     </p>
   </div>
 );
