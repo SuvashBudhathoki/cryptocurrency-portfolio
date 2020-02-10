@@ -9,14 +9,16 @@ import uuid from "uuid";
 export const addTransaction = ({
   currencyName = "",
   units = 0,
-  amount = 0
+  amount = 0,
+  createdAt = 0
 } = {}) => ({
   type: "ADD_TRANSACTION",
   transaction: {
     id: uuid(),
     currencyName,
     units,
-    amount
+    amount,
+    createdAt
   }
 });
 

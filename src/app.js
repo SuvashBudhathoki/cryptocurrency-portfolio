@@ -6,6 +6,7 @@ import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/ConfigureStore";
 import { Provider } from "react-redux";
 import { addTransaction } from "./actions/transactions";
+import { setTextFilter } from "./actions/filters";
 
 const store = configureStore();
 
@@ -20,6 +21,7 @@ store.dispatch(
 store.dispatch(
   addTransaction({ currencyName: "Zcash", units: 10, amount: 10 })
 );
+//store.dispatch(setTextFilter("z"));
 
 const jsx = (
   <Provider store={store}>
