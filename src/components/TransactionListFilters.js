@@ -2,23 +2,21 @@ import React from "react";
 import { connect } from "react-redux";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
+import options from "./CurrencyNames";
 import "react-dates/lib/css/_datepicker.css";
-import {
-  setTextFilter,
-  sortByAmount,
-  sortByDate,
-  setStartDate,
-  setEndDate
-} from "../actions/filters";
+import Select from "react-select";
+import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 
 class TransactionListFilters extends React.Component {
   state = {
-    calendarFocused: null
+    calendarFocused: null,
+    selectedOption: null
   };
 
-  //Filter by text
-  onTextChange = e => {
-    this.props.dispatch(setTextFilter(e.target.value));
+  //Setting up currency name from user
+
+  onValueChange = selectedOption => {
+    this.props.dispatch(setTextFilter(selectedOption.label));
   };
 
   //Sort By
@@ -31,13 +29,6 @@ class TransactionListFilters extends React.Component {
     }
   };
 
-  // Dates Changed
-
-  onDatesChange = ({ startDate, endDate }) => {
-    this.props.dispatch(setStartDate(startDate));
-    this.props.dispatch(setEndDate(endDate));
-  };
-
   onFocusChange = calendarFocused => {
     this.setState(() => ({ calendarFocused }));
   };
@@ -45,10 +36,13 @@ class TransactionListFilters extends React.Component {
   render() {
     return (
       <div>
-        <input
+        <Select
           type="text"
-          value={this.props.filters.text}
-          onChange={this.onTextChange}
+          value={this.state.selectedOption}
+          onChange={this.onValueChange}
+          options={options}
+          autoFocus
+          placeholder="Select your currency name"
         />
         <select value={this.props.filters.sortBy} onChange={this.onSortChange}>
           <option value="date"> Date</option>
@@ -66,14 +60,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(TransactionListFilters);
-
-// <DateRangePicker
-// startDate={this.props.filters.startDate}
-// endDate={this.props.filters.endDate}
-// onDatesChange={this.onDatesChange}
-// focusedInput={this.state.calendarFocused}
-// onFocusChange={this.onFocusChange}
-// showClearDates={true}
-// numberOfMonths={1}
-// isOutsideRange={() => false}
-// />

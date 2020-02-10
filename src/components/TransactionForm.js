@@ -4,17 +4,7 @@ import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
 import Select from "react-select";
-
-const options = [
-  { value: "bitcoin", label: "Bitcoin" },
-  { value: "litecoin", label: "Litecoin" },
-  { value: "ethereum", label: "Ethereum" },
-  { value: "ripple", label: "Ripple" },
-  { value: "bitcoinCash", label: "Bitcoin Cash" },
-  { value: "ethereumClassic", label: "Ethereum Classic" },
-  { value: "zCash", label: "Zcash" },
-  { value: "stellarLumen", label: "Stellar Lumen" }
-];
+import options from "./CurrencyNames";
 
 export default class TransactionForm extends React.Component {
   constructor(props) {
@@ -138,18 +128,3 @@ export default class TransactionForm extends React.Component {
     );
   }
 }
-
-// <input
-//   type="text"
-//   placeholder="CurrencyName"
-//   value={this.state.currencyName}
-//   onChange={this.onCurrencyNameChange}
-//   autoFocus
-// />
-
-// onCurrencyNameChange = e => {
-//   const currencyName = e.target.value;
-//   this.setState(() => ({
-//     currencyName
-//   }));
-// };
