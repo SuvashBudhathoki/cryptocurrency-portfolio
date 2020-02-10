@@ -21,8 +21,13 @@ export default class TransactionForm extends React.Component {
     super(props);
     this.state = {
       currencyName: props.transaction ? props.transaction.currencyName : "",
-      amount: props.transaction ? props.transaction.amount : "",
+      amount: props.transaction
+        ? (props.transaction.amount / 100).toString()
+        : "",
       units: props.transaction ? props.transaction.units : "",
+      createdAt: props.transaction
+        ? moment(props.transaction.createdAt)
+        : moment(),
       error: "",
       value: "",
       selectedOption: null
@@ -57,6 +62,16 @@ export default class TransactionForm extends React.Component {
     }
   };
 
+  onDateChange = createdAt => {
+    if (createdAt) {
+      this.setState(() => ({ createdAt }));
+    }
+  };
+
+  onFocusChange = ({ focused }) => {
+    this.setState(() => ({ calenderFocused: focused }));
+  };
+
   //onForm Submit
   //check to see if amounts and units of cryptocurrency has been provided
   //ask user to re-enter the information if not provided
@@ -70,11 +85,12 @@ export default class TransactionForm extends React.Component {
           "Please provide total units and amounts with cryptocurrency name!!"
       }));
     } else {
-      this.setState(() => ({ error: " " }));
+      this.setState(() => ({ error: "" }));
       this.props.onSubmit({
         currencyName: this.state.currencyName,
-        amount: parseFloat(this.state.amount, 10),
-        units: parseFloat(this.state.units, 10)
+        amount: parseFloat(this.state.amount, 10) * 100,
+        units: parseFloat(this.state.units, 10),
+        createdAt: this.state.createdAt.valueOf()
       });
     }
   };
@@ -105,6 +121,15 @@ export default class TransactionForm extends React.Component {
             value={this.state.amount}
             onChange={this.onAmountChange}
           />
+          <SingleDatePicker
+            date={this.state.createdAt}
+            onDateChange={this.onDateChange}
+            focused={this.state.calenderFocused}
+            onFocusChange={this.onFocusChange}
+            numberOfMonths={1}
+            isOutsideRange={() => false}
+          />
+
           <button>
             {this.props.transaction ? "Edit Transaction" : "Add Transaction"}
           </button>

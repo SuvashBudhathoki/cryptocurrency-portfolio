@@ -1,14 +1,14 @@
 import React from "react";
 import TransactionList from "./TransactionList";
-import TransactionTotal from "./TransactionTotal";
 import CoinMarketCap from "./CoinMarketCapApi";
 import TransactionListFilters from "./TransactionListFilters";
+import TransactionTotal from "./TransactionTotal";
 
 const Dashboard = () => (
   <div>
     <p>
-      <TransactionListFilters />
       <TransactionTotal />
+      <TransactionListFilters />
       <TransactionList />
       ------CoinMarketCap----
     </p>
