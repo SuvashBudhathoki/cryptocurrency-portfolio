@@ -1,6 +1,4 @@
-//Cryptocurrency Portfolio Assessment
 
-//Takes three input from user:
 Project Title
 
 Cryptocurrency portfolio with React
