@@ -7,7 +7,7 @@ const TransactionList = props => (
   <div>
     <h1>Transaction List</h1>
     {props.transactions.map((transaction, index) => {
-      return <TransactionListItem {...transaction} key={index.id} />;
+      return <TransactionListItem {...transaction} key={index} />;
     })}
   </div>
 );

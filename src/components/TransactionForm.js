@@ -11,16 +11,16 @@ export default class TransactionForm extends React.Component {
     super(props);
     this.state = {
       currencyName: props.transaction ? props.transaction.currencyName : "",
-      amount: props.transaction
-        ? (props.transaction.amount / 100).toString()
-        : "",
+      amount: props.transaction ? props.transaction.amount : "",
       units: props.transaction ? props.transaction.units : "",
       createdAt: props.transaction
         ? moment(props.transaction.createdAt)
         : moment(),
       error: "",
       value: "",
-      selectedOption: null
+      selectedOption: props.transaction
+        ? props.transaction.currencyName
+        : "Enter you currency "
     };
   }
 
@@ -28,7 +28,7 @@ export default class TransactionForm extends React.Component {
 
   onValueChange = selectedOption => {
     this.setState(() => ({
-      selectedOption,
+      selectedOption: selectedOption.label,
       currencyName: selectedOption.label
     }));
   };
@@ -75,10 +75,12 @@ export default class TransactionForm extends React.Component {
           "Please provide total units and amounts with cryptocurrency name!!"
       }));
     } else {
-      this.setState(() => ({ error: "" }));
+      this.setState(() => ({
+        error: ""
+      }));
       this.props.onSubmit({
         currencyName: this.state.currencyName,
-        amount: parseFloat(this.state.amount, 10) * 100,
+        amount: parseFloat(this.state.amount, 10),
         units: parseFloat(this.state.units, 10),
         createdAt: this.state.createdAt.valueOf()
       });
@@ -95,7 +97,7 @@ export default class TransactionForm extends React.Component {
             onChange={this.onValueChange}
             options={options}
             autoFocus
-            placeholder="Select your currency name"
+            placeholder={this.state.selectedOption}
           />
 
           <input
@@ -107,7 +109,7 @@ export default class TransactionForm extends React.Component {
 
           <input
             type="text"
-            placeholder="Amount"
+            placeholder="Total Amount"
             value={this.state.amount}
             onChange={this.onAmountChange}
           />

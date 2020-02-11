@@ -6,13 +6,11 @@ import TransactionTotal from "./TransactionTotal";
 
 const Dashboard = () => (
   <div>
-    <p>
-      <TransactionTotal />
-      <TransactionListFilters />
-      <TransactionList />
-      ------CoinMarketCap----
-      <CoinMarketCap />
-    </p>
+    <TransactionTotal />
+    <TransactionListFilters />
+    <TransactionList />
+    ------CoinMarketCap----
+    <CoinMarketCap />
   </div>
 );
 

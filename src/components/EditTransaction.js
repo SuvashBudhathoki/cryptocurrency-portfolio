@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
 import { editTransaction, removeTransaction } from "../actions/transactions";
+import { setTextFilter } from "../actions/filters";
 
 const EditTransaction = props => {
   return (

@@ -10,14 +10,14 @@ import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 class TransactionListFilters extends React.Component {
   state = {
     calendarFocused: null,
-    selectedOption: "Show All Currencies"
+    selectedOption: "Select your currency from here"
   };
 
   //Setting up currency name from user
 
   onValueChange = selectedOption => {
-    this.setState(() => ({ selectedOption }));
     this.props.dispatch(setTextFilter(selectedOption.label));
+    this.setState(() => ({ selectedOption }));
   };
 
   //Sort By

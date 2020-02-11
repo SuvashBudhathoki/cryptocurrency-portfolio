@@ -29,7 +29,7 @@ export default class CoinMarketCap extends React.Component {
   handleSymbol = (crypto, currencyName) => {
     if (crypto.symbol === currencyName.symbol) {
       return (
-        <div>
+        <div key={crypto.id}>
           {crypto.name} {crypto.symbol}
           {numeral(crypto.quote.USD.price / 0.67).format("$0,0.00")}AUD
         </div>
