@@ -1,9 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import "react-dates/initialize";
-import { DateRangePicker } from "react-dates";
 import options from "./CurrencyNames";
-import "react-dates/lib/css/_datepicker.css";
 import Select from "react-select";
 import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 

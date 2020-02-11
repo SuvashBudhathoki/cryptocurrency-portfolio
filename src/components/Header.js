@@ -4,12 +4,10 @@ import { NavLink } from "react-router-dom";
 const Header = () => (
   <header>
     <h1>Cryptocurrency</h1>
-    <NavLink to="/" activeClassName="is-active" exact={true}>
+    <NavLink to="/" exact={true}>
       Dashboard
     </NavLink>
-    <NavLink to="/create" activeClassName="is-active">
-      Create Transaction
-    </NavLink>
+    <NavLink to="/create">Create Transaction</NavLink>
   </header>
 );
 

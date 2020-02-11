@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TransactionList with empty message 1`] = `
+<div>
+  <p>
+     No Transactions To Dispay
+  </p>
+</div>
+`;
+
+exports[`should render TransactionList with transaction 1`] = `
+<div>
+  <TransactionListItem
+    amounts={3000}
+    createAt={0}
+    currencyName="Bitcoin"
+    id="1"
+    key="1"
+    units={10}
+  />
+  <TransactionListItem
+    amounts={2000}
+    createAt={-1000}
+    currencyName="Litecoin"
+    id="2"
+    key="2"
+    units={100}
+  />
+  <TransactionListItem
+    amounts={500}
+    createAt={1000}
+    currencyName="ZCash"
+    id="3"
+    key="3"
+    units={40}
+  />
+</div>
+`;

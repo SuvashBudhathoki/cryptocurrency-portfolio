@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TransactionListItem correctly 1`] = `
+<div>
+  <[object Object]
+    to="/edit/1"
+  >
+    <h3>
+      Bitcoin
+    </h3>
+  </[object Object]>
+  <p>
+    10
+    units -
+    $0.00
+    -
+    February 11th, 2020
+  </p>
+</div>
+`;

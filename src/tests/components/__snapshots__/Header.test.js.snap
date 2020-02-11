@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Header correctly 1`] = `
+<header>
+  <h1>
+    Cryptocurrency
+  </h1>
+  <[object Object]
+    exact={true}
+    to="/"
+  >
+    Dashboard
+  </[object Object]>
+  <[object Object]
+    to="/create"
+  >
+    Create Transaction
+  </[object Object]>
+</header>
+`;
