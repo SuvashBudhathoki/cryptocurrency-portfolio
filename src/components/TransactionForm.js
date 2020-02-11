@@ -1,9 +1,8 @@
 import React from "react";
 import moment from "moment";
-import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
-import "react-dates/lib/css/_datepicker.css";
 import Select from "react-select";
+import "react-dates/initialize";
 import options from "./CurrencyNames";
 
 export default class TransactionForm extends React.Component {
@@ -17,7 +16,6 @@ export default class TransactionForm extends React.Component {
         ? moment(props.transaction.createdAt)
         : moment(),
       error: "",
-      value: "",
       selectedOption: props.transaction
         ? props.transaction.currencyName
         : "Enter you currency "
