@@ -4,21 +4,21 @@ export default [
     id: "1",
     currencyName: "Bitcoin",
     units: 10,
-    amounts: 3000,
-    createAt: 0
+    amount: 3000,
+    createdAt: 0
   },
   {
     id: "2",
     currencyName: "Litecoin",
     units: 100,
-    amounts: 2000,
-    createAt: -1000
+    amount: 2000,
+    createdAt: -1000
   },
   {
     id: "3",
     currencyName: "ZCash",
     units: 40,
-    amounts: 500,
-    createAt: 1000
+    amount: 500,
+    createdAt: 1000
   }
 ];

@@ -18,13 +18,14 @@ export default class TransactionForm extends React.Component {
       error: "",
       selectedOption: props.transaction
         ? props.transaction.currencyName
-        : "Enter you currency "
+        : "Enter you currency ",
+      calendarFocused: false
     };
   }
 
   //Setting up currency name from user
 
-  onValueChange = selectedOption => {
+  onCurrencyChange = selectedOption => {
     this.setState(() => ({
       selectedOption: selectedOption.label,
       currencyName: selectedOption.label
@@ -57,7 +58,7 @@ export default class TransactionForm extends React.Component {
   };
 
   onFocusChange = ({ focused }) => {
-    this.setState(() => ({ calenderFocused: focused }));
+    this.setState(() => ({ calendarFocused: focused }));
   };
 
   //onForm Submit
@@ -92,7 +93,7 @@ export default class TransactionForm extends React.Component {
         <form onSubmit={this.onSubmit}>
           <Select
             value={this.state.selectedOption}
-            onChange={this.onValueChange}
+            onChange={this.onCurrencyChange}
             options={options}
             autoFocus
             placeholder={this.state.selectedOption}
@@ -114,7 +115,7 @@ export default class TransactionForm extends React.Component {
           <SingleDatePicker
             date={this.state.createdAt}
             onDateChange={this.onDateChange}
-            focused={this.state.calenderFocused}
+            focused={this.state.calendarFocused}
             onFocusChange={this.onFocusChange}
             numberOfMonths={1}
             isOutsideRange={() => false}

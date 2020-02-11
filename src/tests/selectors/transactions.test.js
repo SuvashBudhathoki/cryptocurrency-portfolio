@@ -20,7 +20,7 @@ test("should filter by date", () => {
     sortBy: "date"
   };
   const result = selectTransactions(transactions, filters);
-  expect(result).toEqual([transactions[2], transactions[1], transactions[0]]);
+  expect(result).toEqual([transactions[2], transactions[0], transactions[1]]);
 });
 
 //TestCase for filtering by Amount
@@ -31,5 +31,5 @@ test("should filter by amount", () => {
     sortBy: "amount"
   };
   const result = selectTransactions(transactions, filters);
-  expect(result).toEqual([transactions[2], transactions[1], transactions[0]]);
+  expect(result).toEqual([transactions[0], transactions[1], transactions[2]]);
 });

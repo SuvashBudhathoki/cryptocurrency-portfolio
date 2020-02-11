@@ -12,9 +12,9 @@ exports[`should render TransactionListItem correctly 1`] = `
   <p>
     10
     units -
-    $0.00
+    $3,000.00
     -
-    February 11th, 2020
+    January 1st, 1970
   </p>
 </div>
 `;
