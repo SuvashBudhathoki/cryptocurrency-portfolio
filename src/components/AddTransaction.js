@@ -11,8 +11,14 @@ export class AddTransaction extends React.Component {
   render() {
     return (
       <div>
-        <h1> Add Transaction</h1>
-        <TransactionForm onSubmit={this.onSubmit} />
+        <div className="page-header">
+          <div className="content-container">
+            <h1 className="page-header__title"> Add Transaction</h1>{" "}
+          </div>
+        </div>
+        <div className="content-container">
+          <TransactionForm onSubmit={this.onSubmit} />
+        </div>
       </div>
     );
   }

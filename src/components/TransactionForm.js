@@ -1,8 +1,8 @@
 import React from "react";
 import moment from "moment";
+import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import Select from "react-select";
-import "react-dates/initialize";
 import options from "./CurrencyNames";
 
 export default class TransactionForm extends React.Component {
@@ -88,44 +88,46 @@ export default class TransactionForm extends React.Component {
 
   render() {
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.onSubmit}>
-          <Select
-            value={this.state.selectedOption}
-            onChange={this.onCurrencyChange}
-            options={options}
-            autoFocus
-            placeholder={this.state.selectedOption}
-          />
+      <form className="form" onSubmit={this.onSubmit}>
+        {this.state.error && <p className="form__error">{this.state.error}</p>}
 
-          <input
-            type="text"
-            placeholder="Units"
-            value={this.state.units}
-            onChange={this.onUnitsChange}
-          />
+        <Select
+          value={this.state.selectedOption}
+          onChange={this.onCurrencyChange}
+          options={options}
+          autoFocus
+          placeholder={this.state.selectedOption}
+        />
 
-          <input
-            type="text"
-            placeholder="Total Amount"
-            value={this.state.amount}
-            onChange={this.onAmountChange}
-          />
-          <SingleDatePicker
-            date={this.state.createdAt}
-            onDateChange={this.onDateChange}
-            focused={this.state.calendarFocused}
-            onFocusChange={this.onFocusChange}
-            numberOfMonths={1}
-            isOutsideRange={() => false}
-          />
+        <input
+          type="text"
+          placeholder="Units"
+          className="text-input"
+          value={this.state.units}
+          onChange={this.onUnitsChange}
+        />
 
-          <button>
+        <input
+          type="text"
+          placeholder="Total Amount"
+          className="text-input"
+          value={this.state.amount}
+          onChange={this.onAmountChange}
+        />
+        <SingleDatePicker
+          date={this.state.createdAt}
+          onDateChange={this.onDateChange}
+          focused={this.state.calendarFocused}
+          onFocusChange={this.onFocusChange}
+          numberOfMonths={1}
+          isOutsideRange={() => false}
+        />
+        <div>
+          <button className="button">
             {this.props.transaction ? "Edit Transaction" : "Add Transaction"}
           </button>
-        </form>
-      </div>
+        </div>
+      </form>
     );
   }
 }

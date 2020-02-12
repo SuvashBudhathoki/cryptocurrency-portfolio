@@ -33,18 +33,28 @@ export class TransactionListFilters extends React.Component {
 
   render() {
     return (
-      <div>
-        <Select
-          type="text"
-          value={this.state.selectedOption}
-          onChange={this.onValueChange}
-          options={options}
-          placeholder={this.state.selectedOption}
-        />
-        <select value={this.props.filters.sortBy} onChange={this.onSortChange}>
-          <option value="date"> Date</option>
-          <option value="amount"> Amount</option>
-        </select>
+      <div className="content-container">
+        <div className="input-group__item">
+          <Select
+            type="text"
+            value={this.state.selectedOption}
+            onChange={this.onValueChange}
+            options={options}
+            placeholder={this.state.selectedOption}
+          />
+        </div>
+        <div className="input-group">
+          <div className="input-group__item">
+            <select
+              className="select"
+              value={this.props.filters.sortBy}
+              onChange={this.onSortChange}
+            >
+              <option value="date"> Date</option>
+              <option value="amount"> Amount</option>
+            </select>
+          </div>
+        </div>
       </div>
     );
   }

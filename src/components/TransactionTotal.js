@@ -1,11 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
 import numeral from "numeral";
+import { Link } from "react-router-dom";
 import selectTransactions from "../selectors/Transactions";
 import selectTransactionsTotal from "../selectors/TransactionTotal";
 import selectUnitsTotal from "../selectors/UnitsTotal";
 
-const TransactionTotal = ({
+export const TransactionTotal = ({
   transactionCount,
   transactionsTotal,
   unitsTotal
@@ -17,11 +18,20 @@ const TransactionTotal = ({
   );
   const unitWord = unitsTotal <= 1 ? "unit" : "units";
   return (
-    <div>
-      <h1>
-        {`Viewing ${transactionCount} ${transactionWord} totalling AUD 
-        ${formattedTransactionTotal} with a total of ${unitsTotal} ${unitWord}`}
-      </h1>
+    <div className="page-header">
+      <div className="content-container">
+        <h1 className="page-header__title">
+          Viewing <span>{transactionCount}</span> {transactionWord} totalling
+          AUD
+          <span>{formattedTransactionTotal}</span> with a total of
+          <span> {unitsTotal}</span> {unitWord}
+          <div className="page-header__actions">
+            <Link to="/create" className="button">
+              Add Transaction
+            </Link>
+          </div>
+        </h1>
+      </div>
     </div>
   );
 };
