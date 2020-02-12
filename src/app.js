@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "normalize.css/normalize.css";
-import "./styles/styles.scss";
 import AppRouter from "./routers/AppRouter";
 import configureStore from "./store/ConfigureStore";
 import { Provider } from "react-redux";
 import { addTransaction } from "./actions/transactions";
 import "react-dates/lib/css/_datepicker.css";
+import "normalize.css/normalize.css";
+import "./styles/styles.scss";
 
 const store = configureStore();
 
