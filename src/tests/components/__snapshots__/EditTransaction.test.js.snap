@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render EditTransaction page correctly 1`] = `
+<div>
+  <TransactionForm
+    onSubmit={[Function]}
+    transaction={
+      Object {
+        "amount": 3000,
+        "createdAt": 0,
+        "currencyName": "Bitcoin",
+        "id": "1",
+        "units": 10,
+      }
+    }
+  />
+  <button
+    onClick={[Function]}
+  >
+    Delete Transaction
+  </button>
+</div>
+`;

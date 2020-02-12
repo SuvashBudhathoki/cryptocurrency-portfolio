@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render TransactionListFilter correctly 1`] = `
+<div>
+  <StateManager
+    defaultInputValue=""
+    defaultMenuIsOpen={false}
+    defaultValue={null}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "Show All Currencies",
+          "value": "showAll",
+        },
+        Object {
+          "label": "Bitcoin",
+          "symbol": "BTC",
+          "value": "bitcoin",
+        },
+        Object {
+          "label": "Bitcoin Cash",
+          "symbol": "BCH",
+          "value": "bitcoinCash",
+        },
+        Object {
+          "label": "Ethereum Classic",
+          "symbol": "ETC",
+          "value": "ethereumClassic",
+        },
+        Object {
+          "label": "Ethereum",
+          "symbol": "ETH",
+          "value": "ethereum",
+        },
+        Object {
+          "label": "Litecoin",
+          "symbol": "LTC",
+          "value": "litecoin",
+        },
+        Object {
+          "label": "Ripple XRP",
+          "symbol": "XRP",
+          "value": "ripple",
+        },
+        Object {
+          "label": "Stellar",
+          "symbol": "XLM",
+          "value": "stellar",
+        },
+        Object {
+          "label": "Zcash",
+          "symbol": "ZEC",
+          "value": "zCash",
+        },
+      ]
+    }
+    placeholder="Select your currency from here"
+    type="text"
+    value="Select your currency from here"
+  />
+  <select
+    onChange={[Function]}
+    value="date"
+  >
+    <option
+      value="date"
+    >
+       Date
+    </option>
+    <option
+      value="amount"
+    >
+       Amount
+    </option>
+  </select>
+</div>
+`;
+
+exports[`should render TransactionListFilter with alt data correctly 1`] = `
+<div>
+  <StateManager
+    defaultInputValue=""
+    defaultMenuIsOpen={false}
+    defaultValue={null}
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "label": "Show All Currencies",
+          "value": "showAll",
+        },
+        Object {
+          "label": "Bitcoin",
+          "symbol": "BTC",
+          "value": "bitcoin",
+        },
+        Object {
+          "label": "Bitcoin Cash",
+          "symbol": "BCH",
+          "value": "bitcoinCash",
+        },
+        Object {
+          "label": "Ethereum Classic",
+          "symbol": "ETC",
+          "value": "ethereumClassic",
+        },
+        Object {
+          "label": "Ethereum",
+          "symbol": "ETH",
+          "value": "ethereum",
+        },
+        Object {
+          "label": "Litecoin",
+          "symbol": "LTC",
+          "value": "litecoin",
+        },
+        Object {
+          "label": "Ripple XRP",
+          "symbol": "XRP",
+          "value": "ripple",
+        },
+        Object {
+          "label": "Stellar",
+          "symbol": "XLM",
+          "value": "stellar",
+        },
+        Object {
+          "label": "Zcash",
+          "symbol": "ZEC",
+          "value": "zCash",
+        },
+      ]
+    }
+    placeholder="Select your currency from here"
+    type="text"
+    value="Select your currency from here"
+  />
+  <select
+    onChange={[Function]}
+    value="amount"
+  >
+    <option
+      value="date"
+    >
+       Date
+    </option>
+    <option
+      value="amount"
+    >
+       Amount
+    </option>
+  </select>
+</div>
+`;
