@@ -4,7 +4,7 @@ import options from "./CurrencyNames";
 import Select from "react-select";
 import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 
-class TransactionListFilters extends React.Component {
+export class TransactionListFilters extends React.Component {
   state = {
     calendarFocused: null,
     selectedOption: "Select your currency from here"
@@ -13,7 +13,7 @@ class TransactionListFilters extends React.Component {
   //Setting up currency name from user
 
   onValueChange = selectedOption => {
-    this.props.dispatch(setTextFilter(selectedOption.label));
+    this.props.setTextFilter(selectedOption.label);
     this.setState(() => ({ selectedOption }));
   };
 
@@ -21,9 +21,9 @@ class TransactionListFilters extends React.Component {
 
   onSortChange = e => {
     if (e.target.value === "date") {
-      this.props.dispatch(sortByDate());
+      this.props.sortByDate();
     } else if (e.target.value === "amount") {
-      this.props.dispatch(sortByAmount());
+      this.props.sortByAmount();
     }
   };
 
@@ -50,10 +50,15 @@ class TransactionListFilters extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    filters: state.filters
-  };
-};
+const mapStateToProps = state => ({ filters: state.filters });
 
-export default connect(mapStateToProps)(TransactionListFilters);
+const mapDispatchToProps = dispatch => ({
+  setTextFilter: text => dispatch(setTextFilter(text)),
+  sortByDate: () => dispatch(sortByDate()),
+  sortByAmount: () => dispatch(sortByAmount())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TransactionListFilters);

@@ -3,15 +3,23 @@ import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
 import { addTransaction } from "../actions/transactions";
 
-const AddTransaction = props => (
-  <div>
-    <TransactionForm
-      onSubmit={Transaction => {
-        props.dispatch(addTransaction(Transaction));
-        props.history.push("/");
-      }}
-    />
-  </div>
-);
+export class AddTransaction extends React.Component {
+  onSubmit = transaction => {
+    this.props.addTransaction(transaction);
+    this.props.history.push("/");
+  };
+  render() {
+    return (
+      <div>
+        <h1> Add Transaction</h1>
+        <TransactionForm onSubmit={this.onSubmit} />
+      </div>
+    );
+  }
+}
 
-export default connect()(AddTransaction);
+const mapDispatchToProps = dispatch => ({
+  addTransaction: transaction => dispatch(addTransaction(transaction))
+});
+
+export default connect(undefined, mapDispatchToProps)(AddTransaction);
