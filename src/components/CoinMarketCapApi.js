@@ -45,6 +45,16 @@ export default class CoinMarketCap extends React.Component {
   };
 
   render() {
+    if (this.state.cryptos.length === 0) {
+      return (
+        <div className="list-item list-item--message">
+          <span>
+            Please Enable Cross-Origin Resource Sharing (CORS) in Your Browser
+            to View the Information
+          </span>
+        </div>
+      );
+    }
     return (
       <div>
         <div className="content-container">
@@ -54,6 +64,7 @@ export default class CoinMarketCap extends React.Component {
             <div className="show-for-desktop">Price (AUD)</div>
           </div>
         </div>
+
         {this.state.cryptos.map((crypto = { id, name, symbol, quote }) =>
           currencyNames.map((currencyName = { symbol }) =>
             this.handleSymbol(crypto, currencyName)
