@@ -15,3 +15,8 @@
     font-weight: 700;
   }
 }
+
+.page-header__sub-title {
+  @extend .page-header;
+  text-align: center;
+}

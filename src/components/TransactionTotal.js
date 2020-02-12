@@ -12,7 +12,7 @@ export const TransactionTotal = ({
   unitsTotal
 }) => {
   const transactionWord =
-    transactionCount === 1 ? "transaction" : "transactions";
+    transactionCount <= 1 ? "transaction" : "transactions";
   const formattedTransactionTotal = numeral(transactionsTotal).format(
     "$0,0.00"
   );
@@ -28,6 +28,9 @@ export const TransactionTotal = ({
           <div className="page-header__actions">
             <Link to="/create" className="button">
               Add Transaction
+            </Link>
+            <Link to="/coin-market-api" className="button">
+              CoinMarketCap API
             </Link>
           </div>
         </h1>

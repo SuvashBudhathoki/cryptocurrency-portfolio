@@ -6,8 +6,9 @@
   font-size: $font-size-large;
   font-weight: 300;
   line-height: 1;
-  padding: $s-size;
+  padding: $s-size $s-size;
   text-decoration: none;
+  margin-right: $m-size;
 }
 
 .button--secondary {

@@ -29,9 +29,16 @@ export default class CoinMarketCap extends React.Component {
   handleSymbol = (crypto, currencyName) => {
     if (crypto.symbol === currencyName.symbol) {
       return (
-        <div key={crypto.id}>
-          {crypto.name} {crypto.symbol}
-          {numeral(crypto.quote.USD.price / 0.67).format("$0,0.00")}AUD
+        <div className="content-container">
+          <div key={crypto.id} className="list-item">
+            <div>
+              <h3 className="list-item__title">{crypto.name}</h3>
+              <span className="list-item__sub-title"> {crypto.symbol}</span>
+            </div>
+            <h3 className="list-item__data">
+              {numeral(crypto.quote.USD.price / 0.67).format("$0,0.00")}AUD
+            </h3>
+          </div>
         </div>
       );
     }
@@ -40,6 +47,13 @@ export default class CoinMarketCap extends React.Component {
   render() {
     return (
       <div>
+        <div className="content-container">
+          <div className="list-header">
+            <div className="show-for-mobile">Transactions</div>
+            <div className="show-for-desktop">Currency Name</div>
+            <div className="show-for-desktop">Price (AUD)</div>
+          </div>
+        </div>
         {this.state.cryptos.map((crypto = { id, name, symbol, quote }) =>
           currencyNames.map((currencyName = { symbol }) =>
             this.handleSymbol(crypto, currencyName)
