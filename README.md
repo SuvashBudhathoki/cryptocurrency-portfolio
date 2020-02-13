@@ -21,8 +21,8 @@ Here is a working live [Cryptocurrency-Portfolio](https://crypto-currency-portfo
 
 ### Running Scripts
 
-- Production: build:prod
-- TestCases :test
+- Production: yarn run build:prod
+- TestCases : yarn run test -- --watch
 
 ### Features
 
