@@ -1,54 +1,47 @@
-<h2>Cryptocurrency portfolio with React</h2>
+# Cryptocurrency portfolio with React
 
-<h3> Demo </h3>
+### Demo
 
-Here is a working live demo: https://crypto-currency-portfolio.herokuapp.com/
+Here is a working live [Cryptocurrency-Portfolio](https://crypto-currency-portfolio.herokuapp.com/)
 
 <h4>Supported by mobile devices </h4>
 
-<h3>Installing</h3>
-<ul>
-<li>
-Clone the project and type: yarn install </li>
-<li>
+### Installing
+
+-
+
+Clone the project and type: yarn install
+
+-
+
 When the installation finishes, type: yarn run dev-server
-</li>
-</ul>
 
-<h3>Technologies</h3>
-<ul>
-<li>React v6</li>
-<li> Javascript (ES6)</li>
-<li>SCSS/CSS</li>
-</ul>
+### Technologies
 
-<h3>Running Scripts</h3>
-<ul>
-<li>Production: build:prod</li>
-<li>TestCases :test</li>
-</ul>
+- React v6
+- Javascript (ES6)
+- SCSS/CSS
 
-<h3>Features </h3>
+### Running Scripts
 
-<ul>
+- Production: build:prod
+- TestCases :test
 
-<li>The user can add, edit or delete individual transactions, which contains information about:</li>
-<ul>
-<li>Name of crypto currency bought</li>
-<li>Number of Units bought</li>
-<li>Total amount paid for all units</li>
-</ul>
+### Features
 
-<li>The user can view the transaction list according to groups of currencies.</li>
-<li>The user can see the transaction total of all the currencies bought.<li>
-<li>The user can sort the transaction list by Date or Amount.</li>
-<li>The user can see the current value of the currencies via CoinMarketCap Api.</li>
-<li>To enable CoinMarketCap Api, CORS must be enabled in browser.</li>
-</ul>
+- The user can add, edit or delete individual transactions, which contains information about:
 
-<h3>Inspiration </h3>
+  - Name of crypto currency bought
+  - Number of Units bought
+  - Total amount paid for all units
+
+- The user can view the transaction list according to groups of currencies.
+- The user can see the transaction total of all the currencies bought.
+- The user can sort the transaction list by Date or Amount.
+- The user can see the current value of the currencies via CoinMarketCap Api.
+- To enable CoinMarketCap Api, CORS must be enabled in browser.
+
+### Inspiration
 
 This app is based on The Complete React Developer Course (w/ Hooks and Redux) by Andrew Mead via Udemy.
 Thankful to resources from GitHub, StackOverFlow and YouTube
-
-**This is bold**
