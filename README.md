@@ -1,41 +1,34 @@
-<h2>Cryptocurrency portfolio with React</h2>
+##Cryptocurrency portfolio with React
 
 This app allows the user to:
 
-<ul>
+\*The user can add, edit or delete individual transactions, which will contain information about:
 
-<li>The user can add, edit or delete individual transactions, which will contain information about:</li>
-<ul>
-<li>Name of crypto currency</li>
-<li>Number of Units bought</li>
-<li>Total amount paid for all units</li>
-</ul>
+*Name of crypto currency
+*Number of Units bought
+\*Total amount paid for all units
 
-<li>The user can view the groupedBy transaction list in the Dashboard.</li>
-<li>The user can see the transaction total of all the currencies bought.<li>
-<li>The user can sort the transaction list by Date or Amount.</li>
-<li>The user can see the current value of the currencies via CoinMarketCap Api.</li>
-<li>To enable CoinMarketCap Api, CORS must be enabled in browser.</li>
-</ul>
+*The user can view the groupedBy transaction list in the Dashboard.
+*The user can see the transaction total of all the currencies bought.
+*The user can sort the transaction list by Date or Amount.
+*The user can see the current value of the currencies via CoinMarketCap Api.
+\*To enable CoinMarketCap Api, CORS must be enabled in browser.
 
-<h3>Installing</h3>
-<ul>
-<li>
-Clone the project and type: yarn install </li>
-<li>
-When the installation finishes, type: yarn run dev-server
-</li>
+###Installing
 
-<h3>Technologies</h3>
-<ul>
-<li>React ^16.12.0</li>
-<li> Javascript (ES6)</li>
-<li>SCSS/CSS</li>
-</ul>
+\*Clone the project and type: yarn install
 
-<h3>Running Scripts</h3>
-<ul>
-<li>yarn dev-server</li>
-<li>Production: build:prod</li>
-<li>TestCases :test</li>
-</ul>
+\*When the installation finishes, type: yarn run dev-server
+
+###Technologies
+
+\*React ^16.12.0
+
+- Javascript (ES6)
+  \*SCSS/CSS
+
+###Running Scripts
+
+*yarn dev-server
+*Production: build:prod
+\*TestCases :test
