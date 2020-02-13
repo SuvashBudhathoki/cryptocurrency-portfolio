@@ -18,6 +18,14 @@ This app allows the user to:
 <li>To enable CoinMarketCap Api, CORS must be enabled in browser.</li>
 </ul>
 
+<h3>Installing</h3>
+<ul>
+<li>
+Clone the project and type: yarn install </li>
+<li>
+When the installation finishes, type: yarn run dev-server
+</li>
+
 <h3>Technologies</h3>
 <ul>
 <li>React ^16.12.0</li>
