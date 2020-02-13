@@ -1,5 +1,4 @@
-
-Project Title
+<b>Project Title</b>
 
 Cryptocurrency portfolio with React
 
