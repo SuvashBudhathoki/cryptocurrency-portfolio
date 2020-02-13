@@ -36,7 +36,7 @@ export default class CoinMarketCap extends React.Component {
               <span className="list-item__sub-title"> {crypto.symbol}</span>
             </div>
             <h3 className="list-item__data">
-              {numeral(crypto.quote.USD.price / 0.67).format("$0,0.00")}AUD
+              {numeral(crypto.quote.USD.price / 0.67).format("$0,0.00")}
             </h3>
           </div>
         </div>
