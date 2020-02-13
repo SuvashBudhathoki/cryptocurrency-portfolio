@@ -1,5 +1,34 @@
 <h2>Cryptocurrency portfolio with React</h2>
 
+<h3> Demo </h3>
+
+Here is a working live demo: https://crypto-currency-portfolio.herokuapp.com/
+
+<h4>Supported by mobile devices </h4>
+
+<h3>Installing</h3>
+<ul>
+<li>
+Clone the project and type: yarn install </li>
+<li>
+When the installation finishes, type: yarn run dev-server
+</li>
+</ul>
+
+<h3>Technologies</h3>
+<ul>
+<li>React v6</li>
+<li> Javascript (ES6)</li>
+<li>SCSS/CSS</li>
+</ul>
+
+<h3>Running Scripts</h3>
+<ul>
+<li>Production: build:prod</li>
+<li>TestCases :test</li>
+</ul>
+
+<h3>Features </h3>
 This app allows the user to:
 
 <ul>
@@ -18,24 +47,7 @@ This app allows the user to:
 <li>To enable CoinMarketCap Api, CORS must be enabled in browser.</li>
 </ul>
 
-<h3>Installing</h3>
-<ul>
-<li>
-Clone the project and type: yarn install </li>
-<li>
-When the installation finishes, type: yarn run dev-server
-</li>
+<h3>Inspiration </h3>
 
-<h3>Technologies</h3>
-<ul>
-<li>React ^16.12.0</li>
-<li> Javascript (ES6)</li>
-<li>SCSS/CSS</li>
-</ul>
-
-<h3>Running Scripts</h3>
-<ul>
-<li>yarn dev-server</li>
-<li>Production: build:prod</li>
-<li>TestCases :test</li>
-</ul>
+This app is based on The Complete React Developer Course (w/ Hooks and Redux) by Andrew Mead via Udemy.
+Thankful to resources from GitHub, StackOverFlow and YouTube
