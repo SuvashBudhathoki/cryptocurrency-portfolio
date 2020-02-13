@@ -29,7 +29,6 @@ When the installation finishes, type: yarn run dev-server
 </ul>
 
 <h3>Features </h3>
-This app allows the user to:
 
 <ul>
 
