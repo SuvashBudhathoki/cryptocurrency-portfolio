@@ -3,7 +3,7 @@ import moment from "moment";
 import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import Select from "react-select";
-import options from "./CurrencyNames";
+import currencyNames from "../fixtures/CurrencyNames";
 
 export default class TransactionForm extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ export default class TransactionForm extends React.Component {
     if (!this.state.amount || !this.state.units || !this.state.currencyName) {
       this.setState(() => ({
         error:
-          "Please provide total units and amounts with cryptocurrency name!!"
+          "Please provide the currency name with total units and total amounts!!"
       }));
     } else {
       this.setState(() => ({
@@ -94,7 +94,7 @@ export default class TransactionForm extends React.Component {
         <Select
           value={this.state.selectedOption}
           onChange={this.onCurrencyChange}
-          options={options}
+          options={currencyNames}
           autoFocus
           placeholder={this.state.selectedOption}
         />

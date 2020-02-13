@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import currencyNames from "./CurrencyNames";
+import currencyNames from "../fixtures/CurrencyNames";
 import numeral from "numeral";
 
 const apiKey = "19aff428-0470-434b-8807-cf104d68babc";

@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import options from "./CurrencyNames";
+import currencyNames from "../fixtures/CurrencyNames";
 import Select from "react-select";
 import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 
@@ -16,6 +16,8 @@ export class TransactionListFilters extends React.Component {
     this.props.setTextFilter(selectedOption.label);
     this.setState(() => ({ selectedOption }));
   };
+
+  onOptionSelected;
 
   //Sort By
 
@@ -39,8 +41,9 @@ export class TransactionListFilters extends React.Component {
             type="text"
             value={this.state.selectedOption}
             onChange={this.onValueChange}
-            options={options}
+            options={currencyNames}
             placeholder={this.state.selectedOption}
+            isOptionSelected={this.onOptionSelected}
           />
         </div>
         <div className="input-group">

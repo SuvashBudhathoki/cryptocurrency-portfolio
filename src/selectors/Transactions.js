@@ -4,7 +4,17 @@ import moment from "moment";
 
 export default (transactions, { text, sortBy }) => {
   if (text.includes("Show All")) {
-    return transactions;
+    return transactions
+      .map(transaction => {
+        return transaction;
+      })
+      .sort((a, b) => {
+        if (sortBy === "date") {
+          return a.createdAt < b.createdAt ? 1 : -1;
+        } else if (sortBy === "amount") {
+          return a.amount < b.amount ? 1 : -1;
+        }
+      });
   } else {
     return transactions
       .filter(transaction => {
