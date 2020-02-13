@@ -63,7 +63,7 @@ export default class CoinMarketCap extends React.Component {
           <div className="list-header">
             <div className="show-for-mobile">Transactions</div>
             <div className="show-for-desktop">Currency Name</div>
-            <div className="show-for-desktop">Price (AUD)</div>
+            <div className="show-for-desktop">Price / Unit (AUD)</div>
           </div>
         </div>
 
