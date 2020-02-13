@@ -18,7 +18,7 @@ export default (transactions, { text, sortBy }) => {
   } else {
     return transactions
       .filter(transaction => {
-        const textMatch = transaction.currencyName.includes(text);
+        const textMatch = transaction.currencyName === text;
         return textMatch;
       })
       .sort((a, b) => {
