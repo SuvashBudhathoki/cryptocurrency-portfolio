@@ -24,3 +24,12 @@ button:disabled {
 .is-active {
   font-weight: bold;
 }
+
+label {
+  cursor: default;
+  height: 40px;
+  font-size: 1.4rem;
+  font-weight: 300;
+  padding: $s-size;
+  margin: 0 8px 0 0;
+}

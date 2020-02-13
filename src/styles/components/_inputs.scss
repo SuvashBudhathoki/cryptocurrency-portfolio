@@ -7,6 +7,6 @@
   margin-top: 3px;
 }
 
-.select {
-  @extend .text-input;
+.select:hover {
+  cursor: pointer;
 }

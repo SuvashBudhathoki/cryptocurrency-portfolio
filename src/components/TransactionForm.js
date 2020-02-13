@@ -18,7 +18,7 @@ export default class TransactionForm extends React.Component {
       error: "",
       selectedOption: props.transaction
         ? props.transaction.currencyName
-        : "Enter you currency ",
+        : "Enter the Currency Name ",
       calendarFocused: false
     };
   }
