@@ -26,6 +26,8 @@ export default class CoinMarketCap extends React.Component {
       });
   }
 
+  //displaying only the items present in our website by comparing the symbol
+
   handleSymbol = (crypto, currencyName) => {
     if (crypto.symbol === currencyName.symbol) {
       return (

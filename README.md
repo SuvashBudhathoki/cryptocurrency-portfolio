@@ -8,17 +8,14 @@ Here is a working live [Cryptocurrency-Portfolio](https://crypto-currency-portfo
 
 ### Installing
 
--
+- Clone the project and type: yarn install
 
-Clone the project and type: yarn install
-
--
-
-When the installation finishes, type: yarn run dev-server
+- When the installation finishes, type: yarn run dev-server
 
 ### Technologies
 
-- React v6
+- React v16
+- Node v13
 - Javascript (ES6)
 - SCSS/CSS
 
