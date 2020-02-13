@@ -32,14 +32,14 @@ When the installation finishes, type: yarn run dev-server
 
 <ul>
 
-<li>The user can add, edit or delete individual transactions, which will contain information about:</li>
+<li>The user can add, edit or delete individual transactions, which contains information about:</li>
 <ul>
-<li>Name of crypto currency</li>
+<li>Name of crypto currency bought</li>
 <li>Number of Units bought</li>
 <li>Total amount paid for all units</li>
 </ul>
 
-<li>The user can view the groupedBy transaction list in the Dashboard.</li>
+<li>The user can view the transaction list according to groups of currencies.</li>
 <li>The user can see the transaction total of all the currencies bought.<li>
 <li>The user can sort the transaction list by Date or Amount.</li>
 <li>The user can see the current value of the currencies via CoinMarketCap Api.</li>
@@ -50,3 +50,5 @@ When the installation finishes, type: yarn run dev-server
 
 This app is based on The Complete React Developer Course (w/ Hooks and Redux) by Andrew Mead via Udemy.
 Thankful to resources from GitHub, StackOverFlow and YouTube
+
+**This is bold**
