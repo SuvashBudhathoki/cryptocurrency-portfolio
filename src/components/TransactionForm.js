@@ -3,7 +3,7 @@ import moment from "moment";
 import "react-dates/initialize";
 import { SingleDatePicker } from "react-dates";
 import Select from "react-select";
-import currencyNames from "../fixtures/CurrencyNames";
+import { currencyNames } from "../fixtures/CurrencyNames";
 
 export default class TransactionForm extends React.Component {
   constructor(props) {

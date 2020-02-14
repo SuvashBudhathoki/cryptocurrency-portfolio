@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import currencyNames from "../fixtures/CurrencyNames";
+import { currencyNamesDashboard } from "../fixtures/CurrencyNames";
 import Select from "react-select";
 import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 
@@ -41,7 +41,7 @@ export class TransactionListFilters extends React.Component {
             type="text"
             value={this.state.selectedOption}
             onChange={this.onValueChange}
-            options={currencyNames}
+            options={currencyNamesDashboard}
             placeholder={this.state.selectedOption}
             isOptionSelected={this.onOptionSelected}
           />
