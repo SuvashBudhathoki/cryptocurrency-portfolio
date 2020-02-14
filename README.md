@@ -45,7 +45,7 @@ Thankful to resources from GitHub, StackOverFlow and YouTube
 
 ### Screenshots
 
-For getting back to dashoard from other pages, please click on ** Cryptocurrency **
+For getting back to dashoard from other pages, please click on **Cryptocurrency**
 
 ![Dashboard](https://user-images.githubusercontent.com/51769774/74516201-b6759980-4f5b-11ea-882e-b84def4615ad.PNG)
 ![EditTransaction](https://user-images.githubusercontent.com/51769774/74516204-b83f5d00-4f5b-11ea-82f2-262bbada60f5.PNG)
