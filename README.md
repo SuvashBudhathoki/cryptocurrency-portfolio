@@ -6,6 +6,12 @@ Here is a working live [Cryptocurrency-Portfolio](https://crypto-currency-portfo
 
 <h4>Supported by mobile devices </h4>
 
+![Dashboard](https://user-images.githubusercontent.com/51769774/74516201-b6759980-4f5b-11ea-882e-b84def4615ad.PNG)
+![EditTransaction](https://user-images.githubusercontent.com/51769774/74516204-b83f5d00-4f5b-11ea-82f2-262bbada60f5.PNG)
+![GroupedByBitcoin](https://user-images.githubusercontent.com/51769774/74516205-b8d7f380-4f5b-11ea-8170-a8c17590f7cc.PNG)
+![AddTransaction](https://user-images.githubusercontent.com/51769774/74516208-b9708a00-4f5b-11ea-9436-db70a84a2bf4.PNG)
+![CoinMarketCapAPI](https://user-images.githubusercontent.com/51769774/74516210-ba092080-4f5b-11ea-86f0-8a83615b92a1.PNG)
+
 ### Installing
 
 - Clone the project and type: yarn install
