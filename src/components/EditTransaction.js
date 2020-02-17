@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
 import { editTransaction, removeTransaction } from "../actions/transactions";
+import { setTextFilter } from "../actions/filters";
 
 export class EditTransaction extends React.Component {
   onSubmit = transaction => {
@@ -12,6 +13,7 @@ export class EditTransaction extends React.Component {
     this.props.removeTransaction({ id: this.props.transaction.id });
     this.props.history.push("/");
   };
+
   render() {
     return (
       <div>
@@ -31,7 +33,6 @@ export class EditTransaction extends React.Component {
               Delete Transaction
             </button>
           </div>
-          s
         </div>
       </div>
     );

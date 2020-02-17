@@ -7,17 +7,15 @@ import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 export class TransactionListFilters extends React.Component {
   state = {
     calendarFocused: null,
-    selectedOption: "Select the Currency to Group by"
+    selectedOption: "Select the Currency to Group By"
   };
 
   //Setting up currency name from user
 
   onValueChange = selectedOption => {
-    this.props.setTextFilter(selectedOption.label);
     this.setState(() => ({ selectedOption }));
+    this.props.setTextFilter(selectedOption.label);
   };
-
-  onOptionSelected;
 
   //Sort By
 
