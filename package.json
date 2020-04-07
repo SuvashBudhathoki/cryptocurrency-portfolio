@@ -24,9 +24,9 @@
     "babel-preset-react": "6.24.1",
     "coinmarketcap-api": "^3.0.1",
     "core-js": "^3.6.4",
-    "css-loader": "0.28.4",
+    "css-loader": "^3.5.0",
     "express": "^4.17.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
     "normalize.css": "7.0.0",
@@ -46,13 +46,14 @@
     "style-loader": "0.18.2",
     "uuid": "^3.4.0",
     "validator": "8.0.0",
-    "webpack": "3.1.0"
+    "webpack": "^4.20.2"
   },
   "devDependencies": {
     "enzyme": "3.0.0",
     "enzyme-to-json": "^3.4.4",
-    "jest": "20.0.4",
+    "jest": "^25.2.7",
     "react-test-renderer": "16.0.0",
-    "webpack-dev-server": "2.5.1"
+    "webpack-cli": "^3.1.1",
+    "webpack-dev-server": "^3.1.4"
   }
 }
