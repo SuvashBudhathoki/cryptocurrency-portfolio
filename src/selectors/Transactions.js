@@ -1,11 +1,10 @@
 import moment from "moment";
-
 //Get transactions according to filters
 
 export default (transactions, { text, sortBy }) => {
   if (text.includes("Show All")) {
     return transactions
-      .map(transaction => {
+      .map((transaction) => {
         return transaction;
       })
       .sort((a, b) => {
@@ -17,7 +16,7 @@ export default (transactions, { text, sortBy }) => {
       });
   } else {
     return transactions
-      .filter(transaction => {
+      .filter((transaction) => {
         const textMatch = transaction.currencyName === text;
         return textMatch;
       })

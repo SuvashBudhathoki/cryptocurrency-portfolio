@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import TransactionListItem from "./TransactionListItem";
 import selectFilteredTransaction from "../selectors/Transactions";
 
-export const TransactionList = props => (
+export const TransactionList = (props) => (
   <div className="content-container">
     <div>
       <div className="list-header">
@@ -18,7 +18,7 @@ export const TransactionList = props => (
           <span> No Transactions To Dispay</span>
         </div>
       ) : (
-        props.transactions.map(transaction => {
+        props.transactions.map((transaction) => {
           return <TransactionListItem {...transaction} key={transaction.id} />;
         })
       )}
@@ -26,9 +26,9 @@ export const TransactionList = props => (
   </div>
 );
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    transactions: selectFilteredTransaction(state.transactions, state.filters)
+    transactions: selectFilteredTransaction(state.transactions, state.filters),
   };
 };
 

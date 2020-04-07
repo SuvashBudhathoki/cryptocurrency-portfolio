@@ -23,7 +23,7 @@ export const startAddTransaction = (transactionData = {}) => {
       createdAt,
     };
 
-    database
+    return database
       .ref("transactions")
       .push(transaction)
       .then((ref) => {
