@@ -1,8 +1,10 @@
 import {
   addTransaction,
   editTransaction,
-  removeTransaction
+  removeTransaction,
 } from "../../actions/transactions";
+
+import transactions from "../fixtures/transactions";
 
 //TestCase for RemoveTransaction
 
@@ -10,7 +12,7 @@ test("should setup remove transaciton action object", () => {
   const action = removeTransaction({ id: "123abc" });
   expect(action).toEqual({
     type: "REMOVE_TRANSACTION",
-    id: "123abc"
+    id: "123abc",
   });
 });
 
@@ -22,44 +24,39 @@ test("should setup edit transaction action object", () => {
     type: "EDIT_TRANSACTION",
     id: 123,
     updates: {
-      amount: 300
-    }
+      amount: 300,
+    },
   });
 });
 
 //TestCase for AddTransaction
 
 test("should setup add transaction action object", () => {
-  const transactionData = {
-    currencyName: "Ss",
-    amount: 5,
-    units: 10,
-    createdAt: 100
-  };
-  const action = addTransaction(transactionData);
+  const action = addTransaction(transactions[2]);
   expect(action).toEqual({
     type: "ADD_TRANSACTION",
-    transaction: {
-      ...transactionData,
-      id: expect.any(String)
-    }
+    transaction: transactions[2],
   });
 });
 
-test("should setup default value add transaction action object", () => {
-  const transactionData = {
-    currencyName: "",
-    amount: 0,
-    units: 0,
-    createdAt: 0
-  };
-  const action = addTransaction();
+test("should add transaction to database and store", () => {});
 
-  expect(action).toEqual({
-    type: "ADD_TRANSACTION",
-    transaction: {
-      ...transactionData,
-      id: expect.any(String)
-    }
-  });
-});
+test("should add transaction with defaults to database and store", () => {});
+
+// test("should setup default value add transaction action object", () => {
+//   const transactionData = {
+//     currencyName: "",
+//     amount: 0,
+//     units: 0,
+//     createdAt: 0
+//   };
+//   const action = addTransaction();
+
+//   expect(action).toEqual({
+//     type: "ADD_TRANSACTION",
+//     transaction: {
+//       ...transactionData,
+//       id: expect.any(String)
+//     }
+//   });
+// });
