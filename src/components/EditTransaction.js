@@ -5,7 +5,7 @@ import { editTransaction, removeTransaction } from "../actions/transactions";
 import { setTextFilter } from "../actions/filters";
 
 export class EditTransaction extends React.Component {
-  onSubmit = transaction => {
+  onSubmit = (transaction) => {
     this.props.editTransaction(this.props.transaction.id, transaction);
     this.props.history.push("/");
   };
@@ -42,13 +42,13 @@ export class EditTransaction extends React.Component {
 const mapDispatchToProps = (dispatch, props) => ({
   editTransaction: (id, transaction) =>
     dispatch(editTransaction(id, transaction)),
-  removeTransaction: id => dispatch(removeTransaction(id))
+  removeTransaction: (id) => dispatch(removeTransaction(id)),
 });
 
 const mapStateToProps = (state, props) => ({
   transaction: state.transactions.find(
-    transaction => transaction.id === props.match.params.id
-  )
+    (transaction) => transaction.id === props.match.params.id
+  ),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditTransaction);

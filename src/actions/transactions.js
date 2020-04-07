@@ -1,32 +1,48 @@
 import uuid from "uuid";
+import database from "../firebase/firebase";
 
-//Defining Action generators for Transactions
+//Add_Transaction h
 
-//Add_Transaction
-
-//initializing default value and destructuring from other passed objects
-
-export const addTransaction = ({
-  currencyName = "",
-  units = 0,
-  amount = 0,
-  createdAt = 0
-} = {}) => ({
+export const addTransaction = (transaction) => ({
   type: "ADD_TRANSACTION",
-  transaction: {
-    id: uuid(),
-    currencyName,
-    units,
-    amount,
-    createdAt
-  }
+  transaction,
 });
+
+export const startAddTransaction = (transactionData = {}) => {
+  return (dispatch) => {
+    const {
+      currencyName = "",
+      units = 0,
+      amount = 0,
+      createdAt = 0,
+    } = transactionData;
+
+    const transaction = {
+      currencyName,
+      units,
+      amount,
+      createdAt,
+    };
+
+    database
+      .ref("transactions")
+      .push(transaction)
+      .then((ref) => {
+        dispatch(
+          addTransaction({
+            id: ref.key,
+            ...transaction,
+          })
+        );
+      });
+  };
+};
 
 //Remove_Transaction
 
 export const removeTransaction = ({ id } = {}) => ({
   type: "REMOVE_TRANSACTION",
-  id
+  id,
 });
 
 // Edit_Transaction
@@ -34,5 +50,5 @@ export const removeTransaction = ({ id } = {}) => ({
 export const editTransaction = (id, updates) => ({
   type: "EDIT_TRANSACTION",
   id,
-  updates
+  updates,
 });
