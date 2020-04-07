@@ -1,7 +1,7 @@
 const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-module.exports = env => {
+module.exports = (env) => {
   const isProduction = env === "production";
   const CSSExtract = new ExtractTextPlugin("styles.css");
 
@@ -9,14 +9,14 @@ module.exports = env => {
     entry: ["babel-polyfill", "./src/app.js"],
     output: {
       path: path.join(__dirname, "public", "dist"),
-      filename: "bundle.js"
+      filename: "bundle.js",
     },
     module: {
       rules: [
         {
           loader: "babel-loader",
           test: /\.js$/,
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           test: /\.s?css$/,
@@ -25,19 +25,19 @@ module.exports = env => {
               {
                 loader: "css-loader",
                 options: {
-                  sourceMap: true
-                }
+                  sourceMap: true,
+                },
               },
               {
                 loader: "sass-loader",
                 options: {
-                  sourceMap: true
-                }
-              }
-            ]
-          })
-        }
-      ]
+                  sourceMap: true,
+                },
+              },
+            ],
+          }),
+        },
+      ],
     },
     plugins: [CSSExtract],
     //to check where exactly the error occured via console
@@ -45,7 +45,7 @@ module.exports = env => {
     devServer: {
       contentBase: path.join(__dirname, "public"),
       historyApiFallback: true,
-      publicPath: "/dist/"
-    }
+      publicPath: "/dist/",
+    },
   };
 };

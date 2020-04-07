@@ -4,7 +4,7 @@ import TransactionForm from "./TransactionForm";
 import { addTransaction } from "../actions/transactions";
 
 export class AddTransaction extends React.Component {
-  onSubmit = transaction => {
+  onSubmit = (transaction) => {
     this.props.addTransaction(transaction);
     this.props.history.push("/");
   };
@@ -24,8 +24,8 @@ export class AddTransaction extends React.Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  addTransaction: transaction => dispatch(addTransaction(transaction))
+const mapDispatchToProps = (dispatch) => ({
+  addTransaction: (transaction) => dispatch(addTransaction(transaction)),
 });
 
 export default connect(undefined, mapDispatchToProps)(AddTransaction);

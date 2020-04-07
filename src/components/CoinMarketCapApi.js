@@ -9,7 +9,7 @@ export default class CoinMarketCap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cryptos: []
+      cryptos: [],
     };
   }
 
@@ -19,7 +19,7 @@ export default class CoinMarketCap extends React.Component {
         "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=" +
           apiKey
       )
-      .then(res => {
+      .then((res) => {
         const cryptos = res.data.data;
 
         this.setState(() => ({ cryptos }));
@@ -31,8 +31,8 @@ export default class CoinMarketCap extends React.Component {
   handleSymbol = (crypto, currencyName) => {
     if (crypto.symbol === currencyName.symbol) {
       return (
-        <div className="content-container">
-          <div key={crypto.id} className="list-item">
+        <div key={crypto.id} className="content-container">
+          <div className="list-item">
             <div>
               <h3 className="list-item__title">{crypto.name}</h3>
               <span className="list-item__sub-title"> {crypto.symbol}</span>
@@ -47,30 +47,31 @@ export default class CoinMarketCap extends React.Component {
   };
 
   render() {
-    if (this.state.cryptos.length === 0) {
-      return (
-        <div className="list-item list-item--message">
-          <span>
-            Please Enable Cross-Origin Resource Sharing (CORS) in Your Browser
-            to View the Information
-          </span>
-        </div>
-      );
-    }
     return (
       <div>
-        <div className="content-container">
-          <div className="list-header">
-            <div className="show-for-mobile">Transactions</div>
-            <div className="show-for-desktop">Currency Name</div>
-            <div className="show-for-desktop">Price / Unit (AUD)</div>
+        {!this.state.cryptos.length ? (
+          <div className="list-item list-item--message">
+            <span>
+              Please Enable Cross-Origin Resource Sharing (CORS) in Your Browser
+              to View the Information
+            </span>
           </div>
-        </div>
+        ) : (
+          <div>
+            <div className="content-container">
+              <div className="list-header">
+                <div className="show-for-mobile">Transactions</div>
+                <div className="show-for-desktop">Currency Name</div>
+                <div className="show-for-desktop">Price / Unit (AUD)</div>
+              </div>
+            </div>
 
-        {this.state.cryptos.map((crypto = { id, name, symbol, quote }) =>
-          currencyNames.map((currencyName = { symbol }) =>
-            this.handleSymbol(crypto, currencyName)
-          )
+            {this.state.cryptos.map((crypto = { id, name, symbol, quote }) =>
+              currencyNames.map((currencyName = { symbol }) =>
+                this.handleSymbol(crypto, currencyName)
+              )
+            )}
+          </div>
         )}
       </div>
     );
