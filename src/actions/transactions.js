@@ -1,7 +1,7 @@
 import uuid from "uuid";
 import database from "../firebase/firebase";
 
-//Add_Transaction
+//Add_Transaction h
 
 export const addTransaction = (transaction) => ({
   type: "ADD_TRANSACTION",
