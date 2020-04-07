@@ -8,7 +8,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       transactions: transactionsReducer,
-      filters: filtersReducer
+      filters: filtersReducer,
     })
   );
   return store;
