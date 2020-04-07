@@ -12,12 +12,9 @@ export default () => {
     combineReducers({
       transactions: transactionsReducer,
       filters: filtersReducer,
-<<<<<<< HEAD
     })
-=======
-    }),
+  
     composeEnhancers(applyMiddleware(thunk))
->>>>>>> master
   );
   return store;
 };
