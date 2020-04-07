@@ -14,14 +14,14 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
-    "babel-cli": "6.24.1",
-    "babel-core": "6.25.0",
-    "babel-loader": "7.1.1",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/preset-react": "^7.9.4",
+    "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "1.5.2",
-    "babel-preset-react": "6.24.1",
     "coinmarketcap-api": "^3.0.1",
     "core-js": "^3.6.4",
     "css-loader": "^3.5.0",
@@ -49,7 +49,8 @@
     "webpack": "^4.20.2"
   },
   "devDependencies": {
-    "enzyme": "3.0.0",
+    "enzyme": "^3.0.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
     "jest": "^25.2.7",
     "react-test-renderer": "16.0.0",
