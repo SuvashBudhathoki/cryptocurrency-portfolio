@@ -12,8 +12,7 @@ export default () => {
     combineReducers({
       transactions: transactionsReducer,
       filters: filtersReducer,
-    })
-  
+    }),
     composeEnhancers(applyMiddleware(thunk))
   );
   return store;
