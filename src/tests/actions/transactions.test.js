@@ -113,7 +113,7 @@ test("should add transaction to database and store", (done) => {
     createdAt: 9349392,
   };
   store.dispatch(startAddTransaction(transactionData)).then(() => {
-    const actions = store.getActions()
+    const actions = store.getActions();
     expect(actions[0]).toEqual({
       type: "ADD_TRANSACTION",
       transaction: {
