@@ -67,9 +67,7 @@ export const startEditTransaction = (id, updates) => {
   return (dispatch) => {
     return database
       .ref(`transactions/${id}`)
-      .update({
-        ...updates,
-      })
+      .update(updates)
       .then(() => dispatch(editTransaction(id, updates)));
   };
 };

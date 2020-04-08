@@ -2,6 +2,7 @@ import {
   addTransaction,
   startAddTransaction,
   editTransaction,
+  startEditTransaction,
   removeTransaction,
 } from "../../actions/transactions";
 import confifureMockStore from "redux-mock-store";
@@ -34,6 +35,29 @@ test("should setup edit transaction action object", () => {
       amount: 300,
     },
   });
+});
+
+test("should edit transaction from firebase", (done) => {
+  const store = createMockStore({});
+  const id = transactions[0].id;
+  const updates = { amount: 100 };
+
+  store.dispatch(
+    startEditTransaction(id, updates)
+      .then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+          type: "EDIT_EXPENSE",
+          id,
+          updates,
+        });
+        return database.ref(`transactions/${id}`).once("value");
+      })
+      .then((snapshot) => {
+        expect(snapshot.val().amount).toBe(updates.amount);
+        done();
+      })
+  );
 });
 
 //TestCase for AddTransaction

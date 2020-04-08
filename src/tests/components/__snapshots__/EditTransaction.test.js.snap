@@ -2,22 +2,40 @@
 
 exports[`should render EditTransaction page correctly 1`] = `
 <div>
-  <TransactionForm
-    onSubmit={[Function]}
-    transaction={
-      Object {
-        "amount": 3000,
-        "createdAt": 0,
-        "currencyName": "Bitcoin",
-        "id": "1",
-        "units": 10,
-      }
-    }
-  />
-  <button
-    onClick={[Function]}
+  <div
+    className="page-header"
   >
-    Delete Transaction
-  </button>
+    <div
+      className="content-container"
+    >
+      <h1
+        className="page-header__title"
+      >
+         Edit Transaction 
+      </h1>
+    </div>
+    <div
+      className="content-container"
+    >
+      <TransactionForm
+        onSubmit={[Function]}
+        transaction={
+          Object {
+            "amount": 3000,
+            "createdAt": 0,
+            "currencyName": "Bitcoin",
+            "id": "1",
+            "units": 10,
+          }
+        }
+      />
+      <button
+        className="button button--secondary"
+        onClick={[Function]}
+      >
+        Delete Transaction
+      </button>
+    </div>
+  </div>
 </div>
 `;
