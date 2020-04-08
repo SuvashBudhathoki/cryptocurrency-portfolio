@@ -7,3 +7,16 @@
   display: flex;
   justify-content: center;
 }
+
+.box-layout__box {
+  background: fade-out($color: white, $amount: 0.15);
+  border-radius: 3px;
+  text-align: center;
+  width: 30rem;
+  padding: $l-size;
+}
+
+.box-layout__title {
+  margin: 0 0 $m-size 0;
+  line-height: 1;
+}
