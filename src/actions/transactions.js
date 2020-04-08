@@ -8,7 +8,8 @@ export const addTransaction = (transaction) => ({
 });
 
 export const startAddTransaction = (transactionData = {}) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     const {
       currencyName = "",
       units = 0,
@@ -24,7 +25,7 @@ export const startAddTransaction = (transactionData = {}) => {
     };
 
     return database
-      .ref("transactions")
+      .ref(`users/${uid}/transactions`)
       .push(transaction)
       .then((ref) => {
         dispatch(
@@ -45,9 +46,10 @@ export const removeTransaction = ({ id } = {}) => ({
 });
 
 export const startRemoveTransaction = ({ id }) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`transactions/${id}`)
+      .ref(`users/${uid}/transactions/${id}`)
       .remove()
       .then(() => {
         dispatch(removeTransaction({ id }));
@@ -64,9 +66,10 @@ export const editTransaction = (id, updates) => ({
 });
 
 export const startEditTransaction = (id, updates) => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref(`transactions/${id}`)
+      .ref(`users/${uid}/transactions/${id}`)
       .update(updates)
       .then(() => dispatch(editTransaction(id, updates)));
   };
@@ -78,9 +81,10 @@ export const setTransactions = (transactions) => ({
 });
 
 export const startSetTransactions = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
     return database
-      .ref("transactions")
+      .ref(`users/${uid}/transactions`)
       .once("value")
       .then((snapshot) => {
         const transactions = [];

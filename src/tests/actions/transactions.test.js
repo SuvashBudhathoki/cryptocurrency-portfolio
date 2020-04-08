@@ -12,7 +12,20 @@ import { database } from "../../firebase/firebase";
 import transactions from "../fixtures/transactions";
 import { configure } from "enzyme";
 
+const uid = "thisismytestuid";
+const defaultAuthState =  {auth: { uid }}
 const createMockStore = configureMockStore([thunk]);
+
+beforeEach((done) => {
+  const transactionsData = {};
+  transactions.forEach(({ id, transaction, units, amount }) => {
+    transactionsData[id] = { transction, units, amount };
+  });
+  database
+    .ref(`users/${uid}/transactions`)
+    .set(transactionsData)
+    .then(() => done());
+});
 
 //TestCase for RemoveTransaction
 
@@ -22,6 +35,25 @@ test("should setup remove transaciton action object", () => {
     type: "REMOVE_TRANSACTION",
     id: "123abc",
   });
+});
+
+test("should remove transaction from firebase", (done) => {
+  const store = createMockStore(defaultAuthState });
+  const id = transactions[2].id;
+  store
+    .dispatch(startRemoveTransaction({ id }))
+    .then(() => {
+      const actions = store.getActions();
+      expect(actions[0]).toEqual({
+        type: "REMOVE_TRANSACTION",
+        id,
+      });
+      return database.ref(`users/${uid}/transactions/${id}`).once("value");
+    })
+    .then((snapshot) => {
+      expect(snapshot.val()).toBeFalsy();
+      done();
+    });
 });
 
 //TestCase for Edit Transaction
@@ -38,7 +70,7 @@ test("should setup edit transaction action object", () => {
 });
 
 test("should edit transaction from firebase", (done) => {
-  const store = createMockStore({});
+  const store = createMockStore(defaultAuthState);
   const id = transactions[0].id;
   const updates = { amount: 100 };
 
@@ -51,7 +83,7 @@ test("should edit transaction from firebase", (done) => {
           id,
           updates,
         });
-        return database.ref(`transactions/${id}`).once("value");
+        return database.ref(`users/${uid}/transactions/${id}`).once("value");
       })
       .then((snapshot) => {
         expect(snapshot.val().amount).toBe(updates.amount);
@@ -70,8 +102,10 @@ test("should setup add transaction action object", () => {
   });
 });
 
-test("should add transaction to database and store", () => {
-  const store = createMockStore({});
+
+
+test("should add transaction to database and store", (done) => {
+  const store = createMockStore(defaultAuthState);
   const transactionData = {
     transaction: "Bitcoin",
     amount: 30,
@@ -79,14 +113,46 @@ test("should add transaction to database and store", () => {
     createdAt: 9349392,
   };
   store.dispatch(startAddTransaction(transactionData)).then(() => {
-    const actions = store.getActions();
-    expect(action[0]).toEqual({
+    const actions = store.getActions()
+    expect(actions[0]).toEqual({
       type: "ADD_TRANSACTION",
       transaction: {
         id: expect.any(String),
         ...transactionData,
-      },
-    });
-  });
-  done();
+      }
+    })
+    return database.ref(`users/${uid}/transactions/${actions[0].transaction.id}`).once('value')
+  }).then(snapshot=>{
+    expect(snapshot.val()).toEqual(transactionData);
+    done();
+  })
+
 });
+
+test('should add expense with defaults to database and store', done=>{
+  const store = createMockStore(defaultAuthState);
+  const transactionDefaults = {
+    transaction:'',
+    amount:0,
+    units:0,
+    createdAt:0
+  };
+
+  store.dispatch(startAddTransaction({})).then(()=>{
+    const actions = store.getActions();
+    expect(actions[0]).toEqual({
+      type:'ADD_TRANSACTION',
+      transaction:{
+        id: expect.any(String),
+        ...transactionDefaults
+      }
+      
+    })
+    return database.ref(`users/${uid}/transactions/${actions[0].transaction.id}`).once('value')
+    
+  }).then(snapshot=>{
+    expect(snapshot.val()).toEqual(transactionDefaults);
+    done();
+  });
+});
+
