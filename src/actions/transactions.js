@@ -44,6 +44,17 @@ export const removeTransaction = ({ id } = {}) => ({
   id,
 });
 
+export const startRemoveTransaction = ({ id }) => {
+  return (dispatch) => {
+    return database
+      .ref(`transactions/${id}`)
+      .remove()
+      .then(() => {
+        dispatch(removeTransaction({ id }));
+      });
+  };
+};
+
 // Edit_Transaction
 
 export const editTransaction = (id, updates) => ({
@@ -51,3 +62,37 @@ export const editTransaction = (id, updates) => ({
   id,
   updates,
 });
+
+export const startEditTransaction = (id, updates) => {
+  return (dispatch) => {
+    return database
+      .ref(`transactions/${id}`)
+      .update({
+        ...updates,
+      })
+      .then(() => dispatch(editTransaction(id, updates)));
+  };
+};
+
+export const setTransactions = (transactions) => ({
+  type: "SET_TRANSACTIONS",
+  transactions,
+});
+
+export const startSetTransactions = () => {
+  return (dispatch) => {
+    return database
+      .ref("transactions")
+      .once("value")
+      .then((snapshot) => {
+        const transactions = [];
+        snapshot.forEach((childSnapshot) => {
+          transactions.push({
+            id: childSnapshot.key,
+            ...childSnapshot.val(),
+          });
+        });
+        dispatch(setTransactions(transactions));
+      });
+  };
+};

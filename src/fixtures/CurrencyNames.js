@@ -6,10 +6,10 @@ export const currencyNames = [
   { value: "litecoin", label: "Litecoin", symbol: "LTC" },
   { value: "ripple", label: "Ripple XRP", symbol: "XRP" },
   { value: "stellar", label: "Stellar", symbol: "XLM" },
-  { value: "zCash", label: "Zcash", symbol: "ZEC" }
+  { value: "zCash", label: "Zcash", symbol: "ZEC" },
 ];
 
 export const currencyNamesDashboard = [
   { value: "showAll", label: "Show All Currencies" },
-  ...currencyNames
+  ...currencyNames,
 ];

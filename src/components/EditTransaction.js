@@ -1,16 +1,19 @@
 import React from "react";
 import { connect } from "react-redux";
 import TransactionForm from "./TransactionForm";
-import { editTransaction, removeTransaction } from "../actions/transactions";
+import {
+  startEditTransaction,
+  startRemoveTransaction,
+} from "../actions/transactions";
 import { setTextFilter } from "../actions/filters";
 
 export class EditTransaction extends React.Component {
   onSubmit = (transaction) => {
-    this.props.editTransaction(this.props.transaction.id, transaction);
+    this.props.startEditTransaction(this.props.transaction.id, transaction);
     this.props.history.push("/");
   };
   onRemove = () => {
-    this.props.removeTransaction({ id: this.props.transaction.id });
+    this.props.startRemoveTransaction({ id: this.props.transaction.id });
     this.props.history.push("/");
   };
 
@@ -40,9 +43,9 @@ export class EditTransaction extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch, props) => ({
-  editTransaction: (id, transaction) =>
-    dispatch(editTransaction(id, transaction)),
-  removeTransaction: (id) => dispatch(removeTransaction(id)),
+  startEditTransaction: (id, transaction) =>
+    dispatch(startEditTransaction(id, transaction)),
+  startRemoveTransaction: (id) => dispatch(startRemoveTransaction(id)),
 });
 
 const mapStateToProps = (state, props) => ({

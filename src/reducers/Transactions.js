@@ -13,16 +13,19 @@ export default (state = transactionReducerDefaultState, action) => {
       return state.filter(({ id }) => id !== action.id);
 
     case "EDIT_TRANSACTION":
-      return state.map(transaction => {
+      return state.map((transaction) => {
         if (transaction.id === action.id) {
           return {
             ...transaction,
-            ...action.updates
+            ...action.updates,
           };
         } else {
           return transaction;
         }
       });
+
+    case "SET_TRANSACTIONS":
+      return action.transactions;
 
     default:
       return state;

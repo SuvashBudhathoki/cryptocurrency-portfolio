@@ -7,19 +7,19 @@ import { setTextFilter, sortByAmount, sortByDate } from "../actions/filters";
 export class TransactionListFilters extends React.Component {
   state = {
     calendarFocused: null,
-    selectedOption: "Select the Currency to Group By"
+    selectedOption: "Select the Currency to Group By",
   };
 
   //Setting up currency name from user
 
-  onValueChange = selectedOption => {
+  onValueChange = (selectedOption) => {
     this.setState(() => ({ selectedOption }));
     this.props.setTextFilter(selectedOption.label);
   };
 
   //Sort By
 
-  onSortChange = e => {
+  onSortChange = (e) => {
     if (e.target.value === "date") {
       this.props.sortByDate();
     } else if (e.target.value === "amount") {
@@ -27,7 +27,7 @@ export class TransactionListFilters extends React.Component {
     }
   };
 
-  onFocusChange = calendarFocused => {
+  onFocusChange = (calendarFocused) => {
     this.setState(() => ({ calendarFocused }));
   };
 
@@ -41,7 +41,7 @@ export class TransactionListFilters extends React.Component {
             onChange={this.onValueChange}
             options={currencyNamesDashboard}
             placeholder={this.state.selectedOption}
-            isOptionSelected={this.onOptionSelected}
+            isOptionSelected={this.state.onOptionSelected}
           />
         </div>
 
@@ -65,12 +65,12 @@ export class TransactionListFilters extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ filters: state.filters });
+const mapStateToProps = (state) => ({ filters: state.filters });
 
-const mapDispatchToProps = dispatch => ({
-  setTextFilter: text => dispatch(setTextFilter(text)),
+const mapDispatchToProps = (dispatch) => ({
+  setTextFilter: (text) => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
-  sortByAmount: () => dispatch(sortByAmount())
+  sortByAmount: () => dispatch(sortByAmount()),
 });
 
 export default connect(

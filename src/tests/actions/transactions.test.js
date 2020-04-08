@@ -66,23 +66,3 @@ test("should add transaction to database and store", () => {
   });
   done();
 });
-
-test("should add transaction with defaults to database and store", () => {});
-
-// test("should setup default value add transaction action object", () => {
-//   const transactionData = {
-//     currencyName: "",
-//     amount: 0,
-//     units: 0,
-//     createdAt: 0
-//   };
-//   const action = addTransaction();
-
-//   expect(action).toEqual({
-//     type: "ADD_TRANSACTION",
-//     transaction: {
-//       ...transactionData,
-//       id: expect.any(String)
-//     }
-//   });
-// });
