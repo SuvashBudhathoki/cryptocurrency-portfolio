@@ -4,7 +4,6 @@
 
 Here is a working live [Cryptocurrency-Portfolio](https://crypto-currency-portfolio.herokuapp.com/)
 
-<h4>Supported by mobile devices </h4>
 
 ### Installing
 
